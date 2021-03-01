@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Table from "../components/table/Table";
-import SortButtons from '../components/sortButtons/sortButtons';
+import SortButtons from '../components/sortButtons/SortButtons';
 import Search from '../components/search/Search';
 
 class Home extends Component {
@@ -27,7 +27,7 @@ class Home extends Component {
     handleInputChange = (e) => {
         let emps = this.state.firstEmployees;
         let search = RegExp(`^${e}`, "gi");
-        let filteredEmployees = emps.filter(emp => emp.locaiton.state.match(search));
+        let filteredEmployees = emps.filter(emp => emp.location.state.match(search));
         if (!search) {
             this.setState({ employees: this.state.firstEmployees });
         }
