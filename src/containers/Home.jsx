@@ -36,5 +36,19 @@ class Home extends Component {
         }
     }
 
-    
+    sortByName = (e) => {
+        let result = this.state.employees.sort((a,b) => {
+            let aa = a.name   
+            let bb = b.name          
+            
+            if (aa[e] < bb[e]) return -1;
+            if (aa[e] > bb[e]) return +1;
+            return 0;
+        });
+        this.setState({ employees: result })
+    };
+
+    render() {
+        
+}
 }
