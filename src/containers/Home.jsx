@@ -49,6 +49,40 @@ class Home extends Component {
     };
 
     render() {
-        
-}
-}
+        return (
+            <div className="container">
+                <div className="row">
+                    <SortButtons
+                        sortByName={this.sortByName}
+                    />
+                </div>
+                <div className="row">
+                    <Search
+                        {...this.state}
+                        handleInputChange={this.handleInputChange}
+                        />
+                </div>
+                <div className="row">
+                    <table className="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Last</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.employees.map((employee) => (
+                                <Table key={employee.id.value} employee={employee} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        );
+    };
+};
+
+export default Home;
